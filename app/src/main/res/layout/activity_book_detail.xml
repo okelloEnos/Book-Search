@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="Book"
+            type="com.okellosoftwarez.booklistactivity.Book" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookDetail">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="170dp"
+        app:srcCompat="@drawable/book_open"
+        app:layout_constraintTop_toBottomOf="@id/desc_subTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginRight="@dimen/standardMargin"
+        android:layout_marginLeft="@dimen/standardMargin"
+        android:layout_marginEnd="@dimen/standardMargin"
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="98dp"
+        android:tint="@color/colorAccent"/>
+
+    <TextView
+        android:id="@+id/desc_title"
+        android:layout_width="0dp"
+        android:textSize="36sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginLeft="@dimen/standardMargin"
+        android:layout_marginEnd="@dimen/standardMargin"
+        android:layout_marginRight="@dimen/standardMargin"
+        android:text="@{Book.title}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="34dp" />
+    <TextView
+        android:id="@+id/desc_subTitle"
+        android:layout_width="0dp"
+        android:textSize="24sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginLeft="@dimen/standardMargin"
+        android:layout_marginEnd="@dimen/standardMargin"
+        android:layout_marginRight="@dimen/standardMargin"
+        android:text="@{Book.subTitle}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/desc_title"
+        tools:layout_editor_absoluteY="34dp" />
+    <TextView
+        android:id="@+id/desc_author"
+        android:layout_width="0dp"
+        android:textColor="@color/colorAccent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginLeft="@dimen/standardMargin"
+        android:layout_marginEnd="@dimen/standardMargin"
+        android:layout_marginRight="@dimen/standardMargin"
+        android:text="@{Book.authors}"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintTop_toBottomOf="@id/desc_subTitle"
+        tools:layout_editor_absoluteY="34dp" />
+    <TextView
+        android:id="@+id/desc_publisher"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginLeft="@dimen/standardMargin"
+        android:textSize="18sp"
+        android:layout_marginEnd="@dimen/standardMargin"
+        android:layout_marginRight="@dimen/standardMargin"
+        android:text="@{Book.publisher}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintTop_toBottomOf="@id/desc_author"
+        tools:layout_editor_absoluteY="34dp" />
+    <TextView
+        android:id="@+id/desc_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginLeft="@dimen/standardMargin"
+        android:layout_marginEnd="@dimen/standardMargin"
+        android:layout_marginRight="@dimen/standardMargin"
+        android:text="@{Book.publishDate}"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintTop_toBottomOf="@id/desc_publisher"
+        tools:layout_editor_absoluteY="34dp" />
+    <TextView
+        android:id="@+id/desc_bookDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginLeft="@dimen/standardMargin"
+        android:layout_marginEnd="@dimen/standardMargin"
+        android:layout_marginRight="@dimen/standardMargin"
+        android:text="@{Book.description}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteY="34dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

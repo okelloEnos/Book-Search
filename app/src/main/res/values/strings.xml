@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BookListActivity</string>
+    <string name="error_message">Error when Loading the Book From Google Books</string>
+    <string name="book_title">Book Title</string>
+    <string name="authors">Authors</string>
+    <string name="publisher">Publisher</string>
+    <string name="publish_date">Publish Date</string>
+    <string name="search">Search</string>
+    <string name="dTitle">Book Title</string>
+    <string name="dSubTitle">Book SubTitle</string>
+    <string name="dAuthor">Author</string>
+    <string name="dPublisher">Publisher</string>
+    <string name="dPublishDate">Publish Date</string>
+    <string name="dDescription">Description</string>
+</resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="100">
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="25"
+        android:padding="@dimen/padding"
+        android:src="@drawable/book_open"
+        android:tint="@color/colorAccent"
+        android:id="@+id/bookIcon"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:orientation="vertical"
+        android:layout_weight="75"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/tv_title"
+            android:textSize="20sp"
+            android:text="@string/book_title"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/tv_author"
+            android:textSize="18sp"
+            android:text="@string/authors"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:weightSum="100"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="70"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:id="@+id/tv_publisher"
+                android:layout_gravity="start"
+                android:textAlignment="textStart"
+                android:text="@string/publisher"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="30"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:id="@+id/tv_publishedDate"
+                android:layout_gravity="end"
+                android:text="@string/publish_date"
+                android:textAlignment="textEnd"
+                android:paddingEnd="@dimen/padding"
+                android:paddingRight="@dimen/padding"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
