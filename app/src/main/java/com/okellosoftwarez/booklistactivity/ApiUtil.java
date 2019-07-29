@@ -15,18 +15,25 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ApiUtil {
+
+    private static int authorNum;
+
     private ApiUtil(){}
 
     public static final String BASE_API_URL ="https://www.googleapis.com/books/v1/volumes";
     public static final String QUERY_PARAMETER_KEY ="q";
     public static final String KEY ="key";
-    public static final String API_KEY ="AIzaSyAIhcc2DMzOwb030M_MkLTgIaIJRTPeZ-0";
+    public static final String API_KEY ="insert your own key ";
+    public static final String PUBLISHER = "inpublisher:";
+    public static final String TITLE = "intitle:";
+    public static final String AUTHOR = "inauthor:";
+    public static final String ISBN = "isbn:";
 
     /**
-     *AIzaSyAIhcc2DMzOwb030M_MkLTgIaIJRTPeZ-0
+     *
      * @param title
      * @returns URL for the search
-     * AIzaSyCK9Z5fuQBLM0RXV58u1Wmkt9zznb0269c
+     *
      */
     public static URL buildURL (String title){
 
@@ -44,6 +51,34 @@ public class ApiUtil {
         return url;
     }
 
+    public static URL buildURL (String title, String author, String publisher, String isbn){
+        URL url = null;
+        StringBuilder stringBuilder = new StringBuilder();
+        if (!title.isEmpty()){
+            stringBuilder.append(TITLE +title + "+");
+        }
+        if (!author.isEmpty()){
+            stringBuilder.append(AUTHOR + author + "+");
+        }
+        if (!publisher.isEmpty()){
+            stringBuilder.append(PUBLISHER + publisher + "+");
+        }
+        if (!isbn.isEmpty()){
+            stringBuilder.append(ISBN + isbn + "+");
+        }
+        stringBuilder.setLength(stringBuilder.length()-1);
+
+        String newQuery = stringBuilder.toString();
+        Uri uri = Uri.parse(BASE_API_URL).buildUpon().appendQueryParameter(QUERY_PARAMETER_KEY, newQuery)
+                        .appendQueryParameter(KEY, API_KEY).build();
+        try {
+            url = new URL(uri.toString());
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return url;
+    }
     /**
      *
      * @param url
@@ -86,6 +121,8 @@ public class ApiUtil {
             final String ITEMS = "items";
             final String VOLUMEINFO = "volumeInfo";
             final String DESCRIPTION = "description";
+            final String IMAGELINKS = "imageLinks";
+            final String THUMBNAIL = "thumbnail";
 
             ArrayList<Book> books = new ArrayList<Book>();
 
@@ -97,14 +134,28 @@ public class ApiUtil {
                   for (int i =0; i<numOfBooks; i++){
                       JSONObject bookJson = arrayBooks.getJSONObject(i);
                       JSONObject volumeInfoJson = bookJson.getJSONObject(VOLUMEINFO);
-                      int authorNum = volumeInfoJson.getJSONArray(AUTHORS).length();
+                      JSONObject imageJSON = null;
+                      if (volumeInfoJson.has(IMAGELINKS)) {
+                          imageJSON = volumeInfoJson.getJSONObject(IMAGELINKS);
+                      }
+                      try {
+                          authorNum = volumeInfoJson.getJSONArray(AUTHORS).length();
+                      }
+                      catch (Exception e){
+                          authorNum = 0;
+                      }
                       String []authors = new String [authorNum];
                       for (int j =0; j<authorNum; j++){
                           authors[j] = volumeInfoJson.getJSONArray(AUTHORS).get(j).toString();
                       }
-                      Book book = new Book(bookJson.getString(ID),volumeInfoJson.getString(TITLE),
+                      Book book = new Book(bookJson.getString(ID),
+                              volumeInfoJson.getString(TITLE),
                               (volumeInfoJson.isNull(SUBTITLE)?"":volumeInfoJson.getString(SUBTITLE)),
-                              authors,volumeInfoJson.getString(PUBLISHER),volumeInfoJson.getString(PUBLISHER_DATE), volumeInfoJson.getString(DESCRIPTION));
+                              authors,
+                              (volumeInfoJson.isNull(PUBLISHER)?"":volumeInfoJson.getString(PUBLISHER)),
+                              (volumeInfoJson.isNull(PUBLISHER_DATE)?"":volumeInfoJson.getString(PUBLISHER_DATE)),
+                              (volumeInfoJson.isNull(DESCRIPTION)?"":volumeInfoJson.getString(DESCRIPTION)),
+                              (imageJSON == null )?"":imageJSON.getString(THUMBNAIL));
                       books.add(book);
                   }
 

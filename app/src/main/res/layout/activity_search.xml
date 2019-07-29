@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Search">
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_marginTop="@dimen/standardMargin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_title"/>
+    <EditText
+        android:id="@+id/etAuthor"
+        android:layout_marginTop="@dimen/standardMargin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_author"/>
+    <EditText
+        android:id="@+id/etPublisher"
+        android:layout_marginTop="@dimen/standardMargin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_publisher"/>
+    <EditText
+        android:id="@+id/etIsbn"
+        android:layout_marginTop="@dimen/standardMargin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_ISBN"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/btnSearch"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:background="@drawable/search_shape"
+        android:text="@string/hint_search"
+        android:textColor="@color/white"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

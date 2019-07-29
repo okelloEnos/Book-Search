@@ -19,8 +19,8 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="150dp"
-        android:layout_height="170dp"
-        app:srcCompat="@drawable/book_open"
+        android:layout_height="200dp"
+        android:imageUrl="@{Book.thumbnail}"
         app:layout_constraintTop_toBottomOf="@id/desc_subTitle"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/standardMargin"
@@ -29,7 +29,7 @@
         android:layout_marginEnd="@dimen/standardMargin"
         tools:layout_editor_absoluteX="54dp"
         tools:layout_editor_absoluteY="98dp"
-        android:tint="@color/colorAccent"/>
+        />
 
     <TextView
         android:id="@+id/desc_title"
@@ -108,6 +108,7 @@
         android:id="@+id/desc_bookDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standardMargin"
         android:layout_marginStart="@dimen/standardMargin"
         android:layout_marginLeft="@dimen/standardMargin"
         android:layout_marginEnd="@dimen/standardMargin"

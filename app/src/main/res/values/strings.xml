@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BookListActivity</string>
+    <string name="app_name">Book Search</string>
     <string name="error_message">Error when Loading the Book From Google Books</string>
     <string name="book_title">Book Title</string>
     <string name="authors">Authors</string>
@@ -12,4 +12,11 @@
     <string name="dPublisher">Publisher</string>
     <string name="dPublishDate">Publish Date</string>
     <string name="dDescription">Description</string>
+    <string name="hint_title">Insert Title</string>
+    <string name="hint_author">Insert Author(s)</string>
+    <string name="hint_publisher">Insert Publisher</string>
+    <string name="hint_ISBN">Insert ISBN Number</string>
+    <string name="hint_search">Search</string>
+    <string name="advanced_search">Advanced Search</string>
+    <string name="invalid_search">Please Retry with Valid Search Arguments</string>
 </resources>

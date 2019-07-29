@@ -6,5 +6,7 @@
             app:actionViewClass="androidx.appcompat.widget.SearchView"
             app:showAsAction="always"/>
 
-
+        <item android:id="@+id/advanced_search"
+                android:title="@string/advanced_search"
+                app:showAsAction="never"/>
 </menu>
